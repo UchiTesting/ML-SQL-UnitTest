@@ -88,7 +88,7 @@ Class not registered
 
 This time the connection string has been set in the configuration as suggested.
 
-![](img/2024-06-08-00-04-30.png)
+![Connection string have been completed in the project properties Debug tab](img/2024-06-08-00-04-30.png)
 
 Also the deployment seems to have been successful.
 
@@ -129,3 +129,29 @@ D:\Users\UchiTesting\Desktop\repos\SQL\ML-SQL-UnitTest\SimpleUnitTestDB\SimpleUn
 ========== Deploy: 1 succeeded, 0 failed, 0 skipped ==========
 ========== Deploy completed at 00:05 and took 14,268 seconds ==========
 ```
+
+ ## [Create SQL Server Unit Tests](<https://learn.microsoft.com/en-us/sql/ssdt/walkthrough-creating-and-running-a-sql-server-unit-test?view=sql-server-ver16#CreateDBUnitTests>)
+
+From SQL Server Object Explorer project created earlier, we can right click on a stored procedure to display the "Create Unit Tests..." option.
+
+- It checks only the stored procedure over which the mouse was clicked.
+- If multiple file were selected they will be checked.
+- If we click from a parent folder, their child items are all checked
+
+![SQL Object Explorer: Right click on a stored procedure shows the option to create unit tests](img/2024-06-08-01-36-17.png)
+
+We can still change that on the next dialog
+
+![Unit Test Creating Wizard](img/2024-06-08-01-50-17.png)
+
+We are expected to check the box to automatically deploy upon running unit tests
+
+![Also checked options to deploy automatically before unit tests](img/2024-06-08-02-01-03.png)
+
+The test designer appears
+
+![Test Designer](img/2024-06-08-02-11-30.png)
+
+Running the tests at this point gives a bit of everything.
+
+![Test result to this point](img/2024-06-08-02-20-03.png)
