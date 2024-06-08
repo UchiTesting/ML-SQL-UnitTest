@@ -44,12 +44,14 @@ namespace TestProject1
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Sales_uspNewCustomerTest_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Sales_uspPlaceNewOrderTest_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Sales_uspShowOrderDetailsTest_TestAction;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.InconclusiveCondition inconclusiveCondition5;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition rowCountCondition1;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Sales_uspPlaceNewOrderTest_PretestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition2;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Sales_uspFillOrderTest_PretestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExpectedSchemaCondition expectedSchemaCondition1;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Sales_uspShowOrderDetailsTest_PretestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ChecksumCondition checksumCondition1;
             this.Sales_uspCancelOrderTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.Sales_uspFillOrderTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.Sales_uspNewCustomerTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
@@ -61,12 +63,14 @@ namespace TestProject1
             Sales_uspNewCustomerTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             Sales_uspPlaceNewOrderTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             Sales_uspShowOrderDetailsTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
-            inconclusiveCondition5 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.InconclusiveCondition();
             rowCountCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             Sales_uspPlaceNewOrderTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             scalarValueCondition2 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             Sales_uspFillOrderTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            expectedSchemaCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExpectedSchemaCondition();
+            Sales_uspShowOrderDetailsTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            checksumCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ChecksumCondition();
             // 
             // Sales_uspCancelOrderTest_TestAction
             // 
@@ -95,13 +99,9 @@ namespace TestProject1
             // 
             // Sales_uspShowOrderDetailsTest_TestAction
             // 
-            Sales_uspShowOrderDetailsTest_TestAction.Conditions.Add(inconclusiveCondition5);
+            Sales_uspShowOrderDetailsTest_TestAction.Conditions.Add(expectedSchemaCondition1);
+            Sales_uspShowOrderDetailsTest_TestAction.Conditions.Add(checksumCondition1);
             resources.ApplyResources(Sales_uspShowOrderDetailsTest_TestAction, "Sales_uspShowOrderDetailsTest_TestAction");
-            // 
-            // inconclusiveCondition5
-            // 
-            inconclusiveCondition5.Enabled = true;
-            inconclusiveCondition5.Name = "inconclusiveCondition5";
             // 
             // Sales_uspCancelOrderTestData
             // 
@@ -130,7 +130,7 @@ namespace TestProject1
             // Sales_uspShowOrderDetailsTestData
             // 
             this.Sales_uspShowOrderDetailsTestData.PosttestAction = null;
-            this.Sales_uspShowOrderDetailsTestData.PretestAction = null;
+            this.Sales_uspShowOrderDetailsTestData.PretestAction = Sales_uspShowOrderDetailsTest_PretestAction;
             this.Sales_uspShowOrderDetailsTestData.TestAction = Sales_uspShowOrderDetailsTest_TestAction;
             // 
             // rowCountCondition1
@@ -167,6 +167,23 @@ namespace TestProject1
             // Sales_uspFillOrderTest_PretestAction
             // 
             resources.ApplyResources(Sales_uspFillOrderTest_PretestAction, "Sales_uspFillOrderTest_PretestAction");
+            // 
+            // expectedSchemaCondition1
+            // 
+            expectedSchemaCondition1.Enabled = true;
+            expectedSchemaCondition1.Name = "expectedSchemaCondition1";
+            resources.ApplyResources(expectedSchemaCondition1, "expectedSchemaCondition1");
+            expectedSchemaCondition1.Verbose = false;
+            // 
+            // Sales_uspShowOrderDetailsTest_PretestAction
+            // 
+            resources.ApplyResources(Sales_uspShowOrderDetailsTest_PretestAction, "Sales_uspShowOrderDetailsTest_PretestAction");
+            // 
+            // checksumCondition1
+            // 
+            checksumCondition1.Checksum = "-569279133";
+            checksumCondition1.Enabled = true;
+            checksumCondition1.Name = "checksumCondition1";
         }
 
         #endregion
