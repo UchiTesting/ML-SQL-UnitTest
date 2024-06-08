@@ -149,12 +149,11 @@ SELECT @RC AS RC;
 DECLARE @RC AS INT, @CustomerName AS NVARCHAR (40);
 
 SELECT @RC = 0,
-       @CustomerName = NULL;
+       @CustomerName = 'Fictious Customer';
 
 EXECUTE @RC = [Sales].[uspNewCustomer] @CustomerName;
 
-SELECT @RC AS RC;
-
+SELECT * FROM [Sales].[Customer];
 </value>
   </data>
   <data name="Sales_uspPlaceNewOrderTest_TestAction.SqlScript" xml:space="preserve">
