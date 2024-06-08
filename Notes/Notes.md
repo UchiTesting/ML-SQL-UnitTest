@@ -155,3 +155,30 @@ The test designer appears
 Running the tests at this point gives a bit of everything.
 
 ![Test result to this point](img/2024-06-08-02-20-03.png)
+
+## [Run SQL Server Unit Tests](<https://learn.microsoft.com/en-us/sql/ssdt/walkthrough-creating-and-running-a-sql-server-unit-test?view=sql-server-ver16#RunTests>)
+
+I don't know if I missed it but unlike the doc, the test fails. Indeed it expects one line in the return statement.
+I had to check the box to recreate de DB in the project properties.
+
+Then the test results conforms with what is expected in the doc. But it is because we run tests one after the other.
+
+![Test meet expected outcome when the procedure from the doc is followed](img/2024-06-08-03-48-04.png)
+
+Should I try to run them all the result is different...
+
+This is because tests are not really isolated from each other which is indeed not ideal. It is then easy to make brittle test suites.
+
+![Tests are not isolated within a test suite](img/2024-06-08-03-54-46.png)
+
+Should I rerun just the last 3, they all pass.
+
+![Avoiding the 1st test gives different outcome](img/2024-06-08-03-56-09.png)
+
+The broken test gives a good hint the problem is not of the kind above and the procedure needs to be fixed.
+
+![A real problem revealed by the test](img/2024-06-08-03-59-41.png)
+
+After we fix the on-purpose mistake, the test passes.
+
+![Fix the code, pass the test](img/2024-06-08-04-06-06.png)
