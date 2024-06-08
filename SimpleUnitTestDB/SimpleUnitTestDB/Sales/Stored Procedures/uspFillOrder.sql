@@ -14,7 +14,7 @@ WHERE [OrderID] = @OrderID;
 
 UPDATE [Sales].[Customer]  
    SET  
-   YTDSales = YTDSales - @Delta  
+   YTDSales = YTDSales + @Delta
     WHERE [CustomerID] = @CustomerID  
 COMMIT TRANSACTION  
 END
