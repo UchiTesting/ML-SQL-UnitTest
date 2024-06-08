@@ -182,3 +182,19 @@ The broken test gives a good hint the problem is not of the kind above and the p
 After we fix the on-purpose mistake, the test passes.
 
 ![Fix the code, pass the test](img/2024-06-08-04-06-06.png)
+
+## [Add a Negative Unit Test](<https://learn.microsoft.com/en-us/sql/ssdt/walkthrough-creating-and-running-a-sql-server-unit-test?view=sql-server-ver16#NegativeTest>)
+
+![The test fails for it throws an exception](img/2024-06-08-04-20-59.png)
+
+Though it should fail, the test framework does not know about this.
+We need to tell we are expecting this outcome.
+
+```
+[TestMethod(), ExpectedSqlException(Severity=16, MatchFirstError=false, State=1)]  
+public void Sales_uspCancelOrderTest()
+```
+
+The test fails, but it does successfully.
+
+![](img/2024-06-08-04-27-04.png)
